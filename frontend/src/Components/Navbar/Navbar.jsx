@@ -2,13 +2,13 @@ import React, { useContext, useRef } from "react";
 import "./Navbar.css";
 import cart_icon from "../Assets/cart_icon.png";
 import nav_logo from "../Assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import nav_dropdown_icon from "../Assets/nav_dropdown.png";
 import { ShopContext } from "../../Context/ShopContext";
 
 const Navbar = () => {
   const { getTotalCartItems } = useContext(ShopContext);
-  const location = useLocation();
+
   const menuRef = useRef();
 
   const dropdown_toggle = (e) => {
@@ -32,32 +32,38 @@ const Navbar = () => {
         alt="dropdown-icon"
       />
       <ul ref={menuRef} className="nav-menu">
-        <li
-          className={location.pathname === "/" ? "active" : ""}
-          onClick={() => {}}
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
-          <Link to="/">Shop</Link> {location.pathname === "/" ? <hr /> : <></>}
-        </li>
-        <li
-          className={location.pathname === "/mens" ? "active" : ""}
-          onClick={() => {}}
+          SHOP
+        </NavLink>
+        <NavLink
+          to="/mens"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
-          <Link to="/mens">Men</Link> {location.pathname === "/mens" && <hr />}
-        </li>
-        <li
-          className={location.pathname === "/womens" ? "active" : ""}
-          onClick={() => {}}
+          MEN
+        </NavLink>
+        <NavLink
+          to="/womens"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
-          <Link to="/womens">Women</Link>{" "}
-          {location.pathname === "/womens" && <hr />}
-        </li>
-        <li
-          className={location.pathname === "/kids" ? "active" : ""}
-          onClick={() => {}}
+          WOMEN
+        </NavLink>
+        <NavLink
+          to="/kids"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
-          <Link to="/kids">Kids </Link>{" "}
-          {location.pathname === "/kids" && <hr />}
-        </li>
+          KIDS
+        </NavLink>
       </ul>
       <div className="nav-login-cart">
         {localStorage.getItem("auth-token") ? (
@@ -67,11 +73,11 @@ const Navbar = () => {
               window.location.replace("/");
             }}
           >
-            Logout
+            LOGOUT
           </button>
         ) : (
           <Link to="/login">
-            <button>login</button>
+            <button>LOGIN</button>
           </Link>
         )}
 

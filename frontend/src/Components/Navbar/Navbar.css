@@ -8,6 +8,24 @@
   width: 100%;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid red;
+  color: red; /* Optional: highlight active tab */
+}
+
+.navbar a {
+  text-decoration: none; /* removes underlines */
+  border-bottom: none; /* in case a border is used for underline effect */
+}
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -33,24 +51,6 @@
   font-weight: 500;
 }
 
-.nav-menu li a {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  cursor: pointer;
-  color: #626262;
-  text-decoration: none;
-}
-
-.nav-menu hr {
-  border: none;
-  width: 80%;
-  height: 3px;
-  border-radius: 10px;
-  background-color: #ff4141;
-}
 .nav-login-cart {
   display: flex;
   justify-content: center;

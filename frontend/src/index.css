@@ -27,3 +27,6 @@ li {
 button {
   cursor: pointer;
 }
+a.active hr {
+  display: block;
+}
